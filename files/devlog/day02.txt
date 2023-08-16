@@ -1,0 +1,85 @@
+Day 02 - 2023-08-14
+
+The Lost Crusades
+
+Templar Crusaders, but magic is real
+- vs Demons, Undead and, Eldritch Horrors
+- Clerics - Ranged Magic User - attacks, de-buffs, buffs, and healing
+- Paladins - Front line attacker - Buffs, Auras, and Attacks
+- Knights - Tank - Taunts, Blocks, and Attacks
+- Bowmen - Ranged Physical Attacked - attacks, DoTs
+
+Starting Cards
+- Clerics
+    - Strike, Heal x2, Shackle
+- Paladin
+    - Strike x2, Bolster, Fortify
+- Knight
+    - Taunt x2, Strike, Protect
+- Bowmen
+    - Strike x2, Poison Shot, Bola Shot
+
+Largish Party
+Think about unit cap (6?)
+Think about starting party size (3?)
+
+Enemies dying each grant xp
+- weak 1 xp
+- normal 2 xp
+- powerful 3xp
+- boss 5xp
+
+Member levels up
+- More HP
+- Pick a card from that type to add to deck
+
+Member dies
+- Lose their cards
+
+levels 0 - 3
+- Initiate
+- Crusader (5 xp)
+- Veteran (10 xp)
+- Hero (15 xp)
+(30 xp total to max a unit out)
+
+Keep hp and atk value low as possible
+
+HP to full after each fight
+
+Camps let you add 1 member if not at cap
+
+Encounter types
+- Horde (group of 5 - 10 weak enemies)
+- Group (group of 3 - 5 normal enemies)
+- Powerful (1 - 3 enemies, at least 1 - 2 stronger enemies with a supporter or 2)
+- Boss / Monstrosity (1 powerful enemy, may have weaker adds at begin or as an effect)
+
+Data Needs:
+- effect definitions
+- card definitions
+- class definitions
+- enemy definitions
+- encounter definitions
+
+Generation Needs:
+- run / map
+- encounter placements
+- camp contents
+
+=====
+EOD
+=====
+`-Zab0 -Zdy0 -Zmd10 -S0,1,2,3,6,7,13,21,25,42,57,490`
+
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+TypeScript                      44            351             64           1871
+-------------------------------------------------------------------------------
+SUM:                            44            351             64           1871
+-------------------------------------------------------------------------------
+
+The file is under the limit.
+USED: 40.23% |  5355 BYTES
+LEFT: 59.77% |  7957 BYTES

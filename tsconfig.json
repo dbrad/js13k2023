@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2020",
+    "lib": [
+      "dom",
+      "ES2020",
+      "webworker"
+    ],
+    "noImplicitAny": true,
+    "noEmit": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types": [],
+    "paths": {
+      "@res/*": [
+        "./src/res/*"
+      ],
+      "@debug/*": [
+        "./src/ts/__debug/*"
+      ],
+      "@cards/*": [
+        "./src/ts/gameplay/cards/*"
+      ],
+      "@gameplay/*": [
+        "./src/ts/gameplay/*"
+      ],
+      "texture": [
+        "./src/ts/graphics/texture.ts"
+      ],
+      "gl": [
+        "./src/ts/graphics/gl.ts"
+      ],
+      "@graphics/*": [
+        "./src/ts/graphics/*"
+      ],
+      "math": [
+        "./src/ts/math/math.ts"
+      ],
+      "@math/*": [
+        "./src/ts/math/*"
+      ],
+      "@shaders/*": [
+        "./src/shaders/*"
+      ],
+      "@system-input": [
+        "./src/ts/input/system-input.ts"
+      ],
+      "@game-input": [
+        "./src/ts/input/game-input.ts"
+      ],
+      "@root/*": [
+        "./src/ts/*"
+      ],
+      "@project_root/*": [
+        "./*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "node_modules/**/*"
+  ],
+  "include": [
+    "./src/ts/**/*.ts"
+  ]
+}

@@ -1,0 +1,25 @@
+Things I'll need to decide and change the engine for:
+- Am I making a game that benefits from controller controls, or mouse / touch controls?
+    - If controller / keyboard focused I should use the d-pad and buttons code from last year tweaked for 2 threads
+    - If mouse / touch, I should go back to a scene-graph / scene-node system to simplify the gui and stuff
+- Particle systems are currently commented out, figure out if I need them
+- Probably drop down to 1 font, caps only, to save on size.
+    - Since I'm targeting 720p I might not need the 5px font this year?
+    - Alternatively, if I target the 5px font, I can probably shrink the sprite sheets size
+- Need some form of music / ambience
+    - Last year I just used timed effects instead of zzfxm
+
+Game Scenes
+    Init
+    Menu / Title
+    New Run
+    Map
+    Combat
+    Run End
+
+Nodes
+    Background(s)
+    Map Nodes
+    Player Heroes
+    Enemies
+    Cards

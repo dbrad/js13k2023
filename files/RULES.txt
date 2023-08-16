@@ -1,0 +1,2 @@
+Trying a few things to see how it impacts design and performance
+- Keep my type defs in the _types.d.ts files
