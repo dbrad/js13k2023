@@ -59,7 +59,6 @@ if (typeof WorkerGlobalScope === "undefined" && typeof self.app === "undefined")
             case ETM_MSG_SAVE_GAME:
                 let game_state = event.data[1];
                 save_game(game_state);
-                post_message([MTE_MSG_SAVE_LOADED, game_state]);
                 break;
             case ETM_MSG_SAVE_OPTIONS:
                 let options = event.data[1];

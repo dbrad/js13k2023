@@ -20,6 +20,4 @@ function update(delta: number): void
     }
 }
 
-function render(): void { }
-
-export let initialization_scene = create_scene(setup, void_fn, update, render);
+export let initialization_scene = create_scene(setup, void_fn, update);

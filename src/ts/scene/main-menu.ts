@@ -1,3 +1,4 @@
+import { new_game_state } from "@root/game-state";
 import { node_fired } from "@root/node";
 import { add_button_node } from "@root/nodes/button";
 import { add_text_node } from "@root/nodes/text";
@@ -20,10 +21,14 @@ function update(delta: number): void
 {
     if (node_fired[continue_button])
     {
+        new_game_state();
+        switch_to_scene(run_map._id);
+    }
+    if (node_fired[new_game_button])
+    {
+        new_game_state();
         switch_to_scene(run_map._id);
     }
 }
 
-function render(): void { }
-
-export let main_menu = create_scene(setup, void_fn, update, render);
+export let main_menu = create_scene(setup, void_fn, update);

@@ -1,53 +1,70 @@
 import { INPUT_CONTEXT } from "@game-input";
+import { make_cultist } from "@gameplay/enemy-units";
 import { generate_new_map } from "@gameplay/generate-map";
-import { WHITE } from "@graphics/colour";
-import { push_quad } from "@graphics/quad";
-import { create_scene } from "@root/scene";
-import { void_fn } from "@root/shared";
-import { pointOnQuadraticBezier } from "math";
+import { make_knight } from "@gameplay/player-units";
+import { ENEMY_UNITS, GAME_STATE, PLAYER_CARDS, PLAYER_UNITS, reset_combat_state } from "@root/game-state";
+import { add_map_node, clear_encounter, set_encounter_id } from "@root/nodes/map-node";
+import { create_scene, switch_to_scene } from "@root/scene";
+import { floor } from "math";
+import { combat } from "./combat";
 
-let map: RunMap;
+let map_nodes: number[] = [];
 
 function setup(scene_id: number): void
 {
-    map = generate_new_map();
+    for (let i = 0; i < 91; i++)
+        map_nodes.push(add_map_node(scene_id));
+}
+
+function reset_nodes(): void
+{
+    for (let i = 0; i < 91; i++)
+        clear_encounter(map_nodes[i]);
+    for (let i = 0; i < 91; i++)
+    {
+        let col = i % 7;
+        let row = floor(i / 7);
+        let encounter = GAME_STATE[1]._encounters[GAME_STATE[1]._rows[row][col]];
+        if (encounter)
+            set_encounter_id(map_nodes[i], encounter._id);
+    }
+}
+
+function reset(): void
+{
+    GAME_STATE[1] = generate_new_map();
+    reset_nodes();
 }
 
 function update(delta: number): void
 {
     if (INPUT_CONTEXT._was_down)
     {
-        map = generate_new_map();
+        PLAYER_UNITS[0] = make_knight();
+        PLAYER_UNITS[1] = make_knight();
+        PLAYER_UNITS[2] = make_knight();
+        PLAYER_UNITS[3] = make_knight();
+        PLAYER_UNITS[4] = make_knight();
+        PLAYER_UNITS[5] = make_knight();
+
+        ENEMY_UNITS[0] = make_cultist();
+        ENEMY_UNITS[1] = make_cultist();
+        ENEMY_UNITS[2] = make_cultist();
+        ENEMY_UNITS[3] = make_cultist();
+        ENEMY_UNITS[4] = make_cultist();
+        ENEMY_UNITS[5] = make_cultist();
+
+        PLAYER_CARDS[0] = { _card_id: CARD_STRIKE, _owner_id: 0 };
+        PLAYER_CARDS[1] = { _card_id: CARD_BLOCK, _owner_id: 0 };
+        PLAYER_CARDS[2] = { _card_id: CARD_BLOCK, _owner_id: 0 };
+        PLAYER_CARDS[3] = { _card_id: CARD_STRIKE, _owner_id: 0 };
+        PLAYER_CARDS[4] = { _card_id: CARD_STRIKE, _owner_id: 0 };
+        PLAYER_CARDS[5] = { _card_id: CARD_HEAL, _owner_id: 0 };
+        PLAYER_CARDS[6] = { _card_id: CARD_STRIKE, _owner_id: 0 };
+
+        reset_combat_state();
+        switch_to_scene(combat._id);
     }
 }
 
-function render(): void
-{
-    for (let r = 0, r_len = map._rows.length; r < r_len; r++)
-    {
-        let row = map._rows[r];
-        for (let c = 0, c_len = row.length; c < c_len; c++)
-        {
-            let node = map._encounters[map._rows[r][c]];
-            if (node)
-            {
-                let node_x = 32 + node._row * 96;
-                let node_y = 32 + node._column * 96;
-                for (let i of node._from_edges)
-                {
-                    let other_node = map._encounters[i];
-                    let other_node_x = 32 + other_node._row * 96;
-                    let other_node_y = 32 + other_node._column * 96;
-                    for (let t = 0; t <= 1; t += 0.1)
-                    {
-                        let pt = pointOnQuadraticBezier([node_x + 16, node_y + 16], [node_x + 16, other_node_y + 16], [other_node_x + 34, other_node_y + 16], t);
-                        push_quad(pt[X] - 2, pt[Y] - 2, 4, 4, 0xff444444);
-                    }
-                }
-                push_quad(node_x, node_y, 32, 32, WHITE);
-            }
-        }
-    }
-}
-
-export let run_map = create_scene(setup, void_fn, update, render);
+export let run_map = create_scene(setup, reset, update);

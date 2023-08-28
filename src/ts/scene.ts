@@ -13,7 +13,7 @@ let scenes: Scene[] = [];
 let transition_in_progress: boolean = false;
 let next_scene_id: number = 0;
 
-export function create_scene(_setup: SetupFunction, _reset: ResetFunction, _update: UpdateFunction, _render: RenderFunction): Scene
+export function create_scene(_setup: SetupFunction, _reset: ResetFunction, _update: UpdateFunction): Scene
 {
     return {
         _id: -1,
@@ -21,7 +21,6 @@ export function create_scene(_setup: SetupFunction, _reset: ResetFunction, _upda
         _setup,
         _reset,
         _update,
-        _render
     };
 }
 
@@ -116,7 +115,6 @@ export function render_scene(): void
     {
         let scene_id = scene_stack[i];
         let scene = scenes[scene_id];
-        scene._render();
         render_nodes(scene._nodes);
     }
     // render_simple_particles();

@@ -10,7 +10,7 @@ export function initialize_canvas(): HTMLCanvasElement
   document.body.appendChild(stage);
 
   let canvas = document.createElement("canvas");
-  canvas.style.cssText = "height:100%;image-rendering:pixelated;";
+  canvas.style.cssText = "border:1px solid white;height:100%;image-rendering:pixelated;";
   stage.appendChild(canvas);
 
   canvas.width = SCREEN_WIDTH;

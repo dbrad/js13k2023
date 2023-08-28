@@ -13,7 +13,12 @@ Game Scenes
     Init
     Menu / Title
     New Run
+        Difficulty Select
+        Starting Load-out Selection
+        Go Button
     Map
+        Generate Run Map
+    Event
     Combat
     Run End
 
@@ -23,3 +28,28 @@ Nodes
     Player Heroes
     Enemies
     Cards
+
+Remove small font?
+Add scribe font as 8x8
+1 bit graphics?
+how do I want to render backgrounds?
+
+should I use more event /subpub based stuff?
+    when a card is actioned send out an event to all units that card x was played, and y was the target, if that is me, I should react?
+
+event bus for card effects, all card target sub
+    when a card is played, fire an event off of the card id and what nodes were under cursor at the time
+    when the target see its own id in the event, update the data accordingly
+    should i use this for all input?
+    keep a list of under cursor nodes and fire off click events instead of node polling
+    this works better due to a lack of nested elements
+
+Ground + Sky Background
+
+TODO LIST
+- Start working on card targeting system
+- Deck + deck count
+- Discard + discard count
+- Link cards to their own entities
+- Units need hp bar, nameplate, auras
+- Clicking on a unit will open a details window

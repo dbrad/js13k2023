@@ -89,5 +89,57 @@ declare const DEBUG_MSG_SHOW_PERFORMANCE: 12;
 
 declare const SFX_BOOP: 0;
 
-declare const TAG_TEXT: 0;
-declare const TAG_BUTTON: 1;
+declare const TAG_NONE: 0;
+declare const TAG_TEXT: 1;
+declare const TAG_BUTTON: 2;
+declare const TAG_CARD: 3;
+declare const TAG_PLAYER_UNIT: 4;
+declare const TAG_ENEMY_UNIT: 5;
+
+declare const CARD_STRIKE: 0;
+declare const CARD_BLOCK: 1;
+declare const CARD_HEAL: 2;
+
+declare const TARGET_IGNORE: 0;
+declare const TARGET_VALID: 1;
+declare const TARGET_INVALID: 2;
+
+declare const PLAYER_UNIT_KNIGHT: 0;
+declare const PLAYER_UNIT_PALADIN: 1;
+declare const PLAYER_UNIT_CLERIC: 2;
+declare const PLAYER_UNIT_BOWMAN: 3;
+
+declare const ENEMY_UNIT_CULTIST: 0;
+declare const ENEMY_UNIT_DEMON: 1;
+
+declare const TARGET_ANY: 0;
+declare const TARGET_ALL: 1;
+declare const TARGET_HERO: 2;
+declare const TARGET_ALL_HERO: 3;
+declare const TARGET_ENEMY: 4;
+declare const TARGET_ALL_ENEMY: 5;
+
+declare const CARD_EFFECT_DAMAGE: 0;
+declare const CARD_EFFECT_BLOCK: 1;
+declare const CARD_EFFECT_HEAL: 2;
+
+declare const ENEMY_AI_ATTACK_LOWEST: 0;
+declare const ENEMY_AI_ATTACK_HIGHEST: 1;
+declare const ENEMY_AI_ATTACK_RANDOM: 2;
+declare const ENEMY_AI_ATTACK_ALL: 3;
+declare const ENEMY_AI_HEAL_LOWEST: 4;
+declare const ENEMY_AI_HEAL_HIGHEST: 5;
+declare const ENEMY_AI_HEAL_RANDOM: 6;
+declare const ENEMY_AI_HEAL_ALL: 7;
+declare const ENEMY_AI_BUFF_LOWEST: 8;
+declare const ENEMY_AI_BUFF_HIGHEST: 9;
+declare const ENEMY_AI_BUFF_RANDOM: 10;
+declare const ENEMY_AI_BUFF_ALL: 11;
+declare const ENEMY_AI_DEBUFF_LOWEST: 12;
+declare const ENEMY_AI_DEBUFF_HIGHEST: 13;
+declare const ENEMY_AI_DEBUFF_RANDOM: 14;
+declare const ENEMY_AI_DEBUFF_ALL: 15;
+
+declare const COMBAT_ACTIVE_CARD_INDEX: 0;
+declare const COMBAT_ACTIVE_TOOLTIP_CARD: 1;
+declare const COMBAT_ACTIVE_TOOLTIP_UNIT: 2;

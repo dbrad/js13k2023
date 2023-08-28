@@ -1,4 +1,3 @@
-import { debug_log } from "@debug/log";
 import { rand_int, srand_int, srand_seed, srand_shuffle } from "math";
 import { create_basic_encounter, reset_encounter_id } from "./encounter/basic-encounter";
 
@@ -88,8 +87,6 @@ export function generate_new_map(): RunMap
             map._encounters[encounter_id]._to_edges.add(boss_encounter_id);
         }
     }
-
-    debug_log(map);
 
     return map;
 }
